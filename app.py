@@ -41,7 +41,7 @@ def callback():
 
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
-    profile = line_bot_api.get_profile(user_id)
+    #profile = line_bot_api.get_profile(user_id)
     msg = event.message.text
     reply = " "
 
