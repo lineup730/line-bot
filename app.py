@@ -10,6 +10,10 @@ from linebot.models import (
     MessageEvent, TextMessage, TextSendMessage,
 )
 
+from botfunction import *
+
+import random
+
 app = Flask(__name__)
 
 line_bot_api = LineBotApi('hG/QxT2KImFgvDaEm2YyA4pvs5VEGh2YgN8dxI5aKbAkj3uX2bYMiiB9iUlLW0Aof3cyhWbcSubwFlHEL97dSKxKe4fWIFSSUbKJPFnjYPh4AM8+9h9Td/3QEDBDI+8hiGuT7hBJ5CQHR7CzqepcVgdB04t89/1O/w1cDnyilFU=')
@@ -37,10 +41,22 @@ def callback():
 
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
+    profile = line_bot_api.get_profile(user_id)
     msg = event.message.text
-    line_bot_api.reply_message(
-        event.reply_token,
-        TextSendMessage(text="測試機器人說話"))
+    reply = " "
+
+    if msg = "抽獎":
+        reply = random(1,10)
+        reply = reply + "折"
+    else
+        reply = "無動作"
+    
+    # line_bot_api.reply_message(event.reply_token,TextSendMessage(reply))
+
+    # print(profile.display_name)
+    # print(profile.user_id)
+    # print(profile.picture_url)
+    # print(profile.status_message)
 
 
 if __name__ == "__main__":
