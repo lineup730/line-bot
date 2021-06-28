@@ -47,7 +47,7 @@ def handle_message(event):
 
     if msg == "抽獎":
         reply = random.randint(1,10)
-        reply = reply + "折"
+        reply = str(reply) + "折"
     else:
         reply = "無動作"
 
