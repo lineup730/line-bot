@@ -48,7 +48,7 @@ def handle_message(event):
     if msg == "抽獎":
         reply = random(1,10)
         reply = reply + "折"
-    else
+    else:
         reply = "無動作"
 
     line_bot_api.reply_message(event.reply_token,TextSendMessage(reply))
