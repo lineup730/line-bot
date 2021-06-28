@@ -10,7 +10,7 @@ from linebot.models import (
     MessageEvent, TextMessage, TextSendMessage,
 )
 
-from botfunction import *
+#from botfunction import *
 
 import random
 
@@ -46,7 +46,7 @@ def handle_message(event):
     reply = " "
 
     if msg == "抽獎":
-        reply = random(1,10)
+        reply = random.randint(1,10)
         reply = reply + "折"
     else:
         reply = "無動作"
