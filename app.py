@@ -19,6 +19,16 @@ app = Flask(__name__)
 line_bot_api = LineBotApi('hG/QxT2KImFgvDaEm2YyA4pvs5VEGh2YgN8dxI5aKbAkj3uX2bYMiiB9iUlLW0Aof3cyhWbcSubwFlHEL97dSKxKe4fWIFSSUbKJPFnjYPh4AM8+9h9Td/3QEDBDI+8hiGuT7hBJ5CQHR7CzqepcVgdB04t89/1O/w1cDnyilFU=')
 handler = WebhookHandler('842701e0f9acec75d10f565801e37c90')
 
+rich_menu_to_create = RichMenu(
+    size=RichMenuSize(width=2500, height=843),
+    selected=False,
+    name="Nice richmenu",
+    chat_bar_text="Tap here",
+    areas=[RichMenuArea(
+        bounds=RichMenuBounds(x=0, y=0, width=2500, height=843),
+        action=URIAction(label='Go to line.me', uri='https://line.me'))]
+)
+rich_menu_id = line_bot_api.create_rich_menu(rich_menu=rich_menu_to_create)
 
 @app.route("/callback", methods=['POST'])
 def callback():
